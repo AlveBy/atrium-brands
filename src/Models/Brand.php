@@ -9,10 +9,12 @@ declare(strict_types=1);
 
 namespace Atrium\Brands\Models;
 
+use Atrium\Admin\Cache\CachesRecords;
 use Atrium\Admin\Columns\BooleanColumn;
 use Atrium\Admin\Columns\ImageColumn;
 use Atrium\Admin\Columns\TextColumn;
 use Atrium\Admin\Contracts\Administrable;
+use Atrium\Admin\Contracts\Cacheable;
 use Atrium\Admin\Fields\CheckboxField;
 use Atrium\Admin\Fields\ColorField;
 use Atrium\Admin\Fields\ImageField;
@@ -31,9 +33,9 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $name
  * @property string $code
  */
-class Brand extends Model implements Administrable
+class Brand extends Model implements Administrable, Cacheable
 {
-    use InteractsWithAdmin;
+    use CachesRecords, InteractsWithAdmin;
 
     protected $table = 'brands';
 
